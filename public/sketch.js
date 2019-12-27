@@ -9,6 +9,7 @@ document.getElementById('checkin').addEventListener('click', event=>{
         const response = await fetch('/api');
         const data = await response.json();
         console.log(data);
+        document.getElementById('dcmember').innerHTML="";
 
         for (item of data){
             const root = document.createElement('p');
@@ -20,7 +21,9 @@ document.getElementById('checkin').addEventListener('click', event=>{
 
             root.append(district, name);
 
-            document.body.append(root);
+            //document.body.append(root);
+            
+            document.getElementById('dcmember').appendChild(root);
 
         }
     }
@@ -32,6 +35,8 @@ document.getElementById('checkatt').addEventListener('click', event=>{
         const response = await fetch('/att_api');
         const data = await response.json();
         //console.log(data);
+        document.getElementById('dcmember').innerHTML="";
+
         for (item of data){
             const root = document.createElement('p');
             const district = document.createElement('div');
@@ -48,39 +53,13 @@ document.getElementById('checkatt').addEventListener('click', event=>{
 
             root.append(district, name,type,name,attrate);
 
-            document.body.append(root);
+            //document.body.append(root);
+            document.getElementById('dcmember').appendChild(root);
 
         }
     }
 })
 
-document.getElementById('checkin').addEventListener('click', event=>{
-    //getData()
-    //    .then(dcmember =>{
-    //        document.getElementById('dcmember').innerText = dcmember;
-    //    })
-    getData();
-
-    async function getData() {
-        const response = await fetch('/api');
-        const data = await response.json();
-        console.log(data);
-
-        for (item of data){
-            const root = document.createElement('p');
-            const district = document.createElement('div');
-            const name = document.createElement('div');
-
-            district.textContent = `${item.district}`;
-            name.textContent = `${item.name}`;
-
-            root.append(district, name);
-
-            document.body.append(root);
-
-        }
-    }
-})
 document.getElementById('checkvote').addEventListener('click', event=>{
     getData();
 
@@ -88,7 +67,8 @@ document.getElementById('checkvote').addEventListener('click', event=>{
         const response = await fetch('/vote_api');
         const data = await response.json();
         //console.log(data);
-        
+        document.getElementById('dcmember').innerHTML="";
+
         for (item of data.value){
             const root = document.createElement('p');
             const votedate = document.createElement('div');
@@ -107,7 +87,8 @@ document.getElementById('checkvote').addEventListener('click', event=>{
 
             root.append(votedate, meeting, motion,name,vote);
 
-            document.body.append(root);
+            //document.body.append(root);
+            document.getElementById('dcmember').appendChild(root);
 
         }
     }
