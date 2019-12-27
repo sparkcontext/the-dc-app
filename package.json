@@ -1,0 +1,21 @@
+{
+  "name": "20191226dc",
+  "version": "1.0.0",
+  "description": "District Council",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "keywords": [
+    "district",
+    "council"
+  ],
+  "author": "Gary Li",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nedb": "^1.8.0",
+    "node-fetch": "^2.6.0"
+  }
+}
